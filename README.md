@@ -1,6 +1,6 @@
 # tcts 🤿
 
-A 🤿 functional try ... catch implementation
+A 🤿 functional, curriable try ... catch implementation.
 
 ## Install
 
