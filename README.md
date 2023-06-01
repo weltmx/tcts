@@ -10,7 +10,7 @@ npm i tcts
 
 ## Usage
 
-#### Try catch
+#### TC - Try catch
 
 ```ts
 import { tc } from "tcts"
@@ -21,7 +21,7 @@ const [error, value] = tc(() => {
 })
 ```
 
-#### Try catch fallback
+#### TCF - Try catch fallback
 
 ```ts
 import { tcf } from "tcts"
