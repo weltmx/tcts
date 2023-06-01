@@ -1,7 +1,7 @@
 {
   "name": "tcts",
   "description": "🤿 functional try ... catch implementation",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "author": "weltmx",
   "license": "MIT",
