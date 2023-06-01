@@ -1,1 +1,1 @@
-export { tc, tcf, tcNull, tcNullish, tcRetry, safe } from './tstc'
+export { tc, tcf, tcNull, tcNullish, tcRetry, safe } from './tcts'

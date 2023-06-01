@@ -1,6 +1,6 @@
 {
   "name": "tcts",
-  "description": "functional try ... catch implementation",
+  "description": "🤿 functional try ... catch implementation",
   "version": "0.0.1",
   "type": "module",
   "author": "weltmx",
@@ -8,18 +8,18 @@
   "homepage": "http://101.lu",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/101-lu/request.git"
+    "url": "git+https://github.com/weltmx/tcts.git"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/request.umd.cjs",
-  "module": "./dist/request.js",
-  "types": "./dist/request.d.ts",
+  "main": "./dist/tcts.umd.cjs",
+  "module": "./dist/tcts.js",
+  "types": "./dist/tcts.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/request.js",
-      "require": "./dist/request.umd.cjs"
+      "import": "./dist/tcts.js",
+      "require": "./dist/tcts.umd.cjs"
     }
   },
   "scripts": {
@@ -34,7 +34,7 @@
     "vite-plugin-dts": "^2.1.0"
   },
   "bugs": {
-    "url": "https://github.com/101-lu/request/issues"
+    "url": "https://github.com/weltmx/tcts/issues"
   },
   "directories": {
     "lib": "lib"

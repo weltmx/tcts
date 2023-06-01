@@ -1,3 +1,3 @@
-# request 🧤
+# tcts 🤿
 
-A simple fetch wrapper.
+🤿 functional try ... catch implementation
