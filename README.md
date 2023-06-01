@@ -26,8 +26,10 @@ const [error, value] = tc(() => {
 ```ts
 import { tcf } from "tcts"
 
-// with custom fallback value
 const safeParseNum = tcf(0, parseNum)
+
+// partial application to reuse
+const tcNumber = tcf(0)
 ```
 
 ```ts
