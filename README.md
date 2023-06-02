@@ -13,7 +13,7 @@ npm i tcts
 #### TC - Try catch
 
 ```ts
-import { tc } from "tcts"
+import { tc } from 'tcts'
 
 const [error, value] = tc(() => {
   // errorable code
@@ -24,7 +24,7 @@ const [error, value] = tc(() => {
 #### TCF - Try catch fallback
 
 ```ts
-import { tcf } from "tcts"
+import { tcf } from 'tcts'
 
 const safeParseNum = tcf(0, parseNum)
 
@@ -35,9 +35,10 @@ const tcNumber = tcf(0)
 ```ts
 // other helpers
 
-import { tcNull, tcNullish, tcRetry } from "tcts"
+import { tcNull, tcNullish, tcRetry } from 'tcts'
 
 tcNull(fn) // tcf(null, fn)
 tcNullish(fn) // tcf(undefined, fn)
+tcNumber(fn) // tcf(0, fn)
 tcRetry(fn) // tcf(fn, fn)
 ```

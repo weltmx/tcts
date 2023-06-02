@@ -39,6 +39,7 @@ export const tcf: TCF = <F extends TCFunc, FB>(fallback: FB, fn?: F) => {
 
 export const tcNull = tcf(null)
 export const tcNullish = tcf(undefined)
+export const tcNumber = tcf(0)
 export const tcRetry = <F extends TCFunc>(fn: F) => tcf(fn, fn)
 
 // alias
