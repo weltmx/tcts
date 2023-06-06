@@ -9,9 +9,27 @@ const isError = (v: any): v is Error => v instanceof Error
  * [err, res] = tc(() => ..)
  */
 
-export const tc = <F extends TCFunc>(fn: F): [Error, undefined] | [false, ReturnType<F>] => {
+export const tc = <F extends TCFunc>(f: F): [Error, undefined] | [false, ReturnType<F>] => {
   try {
-    const result = fn()
+    const result = f()
+    return [false, result]
+  } catch (err) {
+    return [isError(err) ? err : new Error('tc: Thrown error not from ErrorConstructor'), undefined]
+  }
+}
+
+/**
+ * async try .. catch:
+ * async functional try catch wrapper
+ *
+ * [err, res] = await tc(async () => ..)
+ */
+
+export const atc = async <F extends TCFunc>(
+  f: F
+): Promise<[Error, undefined] | [false, ReturnType<F>]> => {
+  try {
+    const result = await f()
     return [false, result]
   } catch (err) {
     return [isError(err) ? err : new Error('tc: Thrown error not from ErrorConstructor'), undefined]
@@ -25,12 +43,23 @@ export const tc = <F extends TCFunc>(fn: F): [Error, undefined] | [false, Return
  * n = tcf(0, (n) => ..)(7)
  */
 
-export const tcf: TCF = <F extends TCFunc, FB>(fallback: FB, fn?: F) => {
-  if (!fn) return (fn: F) => tcf(fallback, fn)
+// @ts-expect-error
+export const tcf: TCF = (fallback, f) => {
+  if (!f) return f2 => tcf(fallback, f2)
+  const isAsync = f.constructor.name === 'AsyncFunction'
 
-  return (...args: Parameters<F>): ReturnType<F> | FB => {
+  if (isAsync)
+    return async (...args) => {
+      try {
+        return await f(...args)
+      } catch {
+        return fallback
+      }
+    }
+
+  return (...args) => {
     try {
-      return fn(...args)
+      return f(...args)
     } catch {
       return fallback
     }
