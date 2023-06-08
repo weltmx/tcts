@@ -8,6 +8,7 @@ export type TCF = {
   ) => (
     ...args: Parameters<F>
   ) => AsyncReturnType<F> extends never ? ReturnType<F> | FB : ReturnType<F> | Promise<FB>
+
   <FB, F extends TCFunc>(fallback: FB, fn: F): (
     ...args: Parameters<F>
   ) => AsyncReturnType<F> extends never ? ReturnType<F> | FB : ReturnType<F> | Promise<FB>
