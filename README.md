@@ -19,6 +19,9 @@ const [error, value] = tc(() => {
   // errorable code
   return value
 })
+
+// use atc for an async try catch
+atc(async () => ..)
 ```
 
 #### TCF - Try catch fallback
@@ -32,10 +35,19 @@ const safeParseNum = tcf(0, parseNum)
 const tcNumber = tcf(0)
 ```
 
+##### Safely access deeply nested objects using tcf
+
+```ts
+const translation = tcf("No translation", (t) => t.a.b.c)(translations)
+```
+
+
+##### TCF helpers
+
 ```ts
 // other helpers
 
-import { tcNull, tcNullish, tcRetry } from 'tcts'
+import { tcNull, tcNullish, tcNumber, tcRetry } from 'tcts'
 
 tcNull(fn) // tcf(null, fn)
 tcNullish(fn) // tcf(undefined, fn)
