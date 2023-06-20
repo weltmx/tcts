@@ -33,6 +33,7 @@ const safeParseNum = tcf(0, parseNum)
 
 // partial application to reuse
 const tcNumber = tcf(0)
+const tcAction = tcf({ error: true })
 ```
 
 ##### Safely access deeply nested objects using tcf
