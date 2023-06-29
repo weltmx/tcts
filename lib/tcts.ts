@@ -68,6 +68,7 @@ export const tcf: TCF = (fallback, f) => {
 
 export const tcNull = tcf(null)
 export const tcNullish = tcf(undefined)
+export const tcVoid = tcf<void>(undefined)
 export const tcNumber = tcf(0)
 export const tcRetry = <F extends TCFunc>(fn: F) => tcf(fn, fn)
 
