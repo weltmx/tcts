@@ -36,13 +36,6 @@ const tcNumber = tcf(0)
 const tcAction = tcf({ error: true })
 ```
 
-##### Safely access deeply nested objects using tcf
-
-```ts
-const translation = tcf("No translation", (t) => t.a.b.c)(translations)
-```
-
-
 ##### TCF helpers
 
 ```ts
